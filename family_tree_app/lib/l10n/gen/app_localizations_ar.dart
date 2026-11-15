@@ -578,6 +578,149 @@ class AppLocalizationsAr extends AppLocalizations {
   String get viewDetails => 'عرض التفاصيل';
 
   @override
+  String get actionFailed => 'حدث خطأ';
+
+  @override
+  String get anyoneWithCode => 'أي شخص لديه الرمز';
+
+  @override
+  String get changeRole => 'تغيير الصلاحية';
+
+  @override
+  String get checkInvite => 'تحقق من الرمز';
+
+  @override
+  String get copyCode => 'نسخ الرمز';
+
+  @override
+  String get copyInviteMessage => 'نسخ رسالة الدعوة';
+
+  @override
+  String get createInvite => 'إنشاء الدعوة';
+
+  @override
+  String get deleteTree => 'حذف الشجرة';
+
+  @override
+  String get emptyViewOnly =>
+      'هذه الشجرة المشتركة فارغة، ولديك صلاحية العرض فقط.';
+
+  @override
+  String get inviteCode => 'رمز الدعوة';
+
+  @override
+  String get inviteEmailHint =>
+      'إن حددته، فلن يستخدم الدعوة إلا من يسجل الدخول بهذا البريد.';
+
+  @override
+  String get inviteEmailOptional => 'البريد الإلكتروني (اختياري)';
+
+  @override
+  String get inviteExpired => 'انتهت صلاحية هذه الدعوة. اطلب دعوة جديدة.';
+
+  @override
+  String get inviteNotFound => 'رمز الدعوة غير موجود. تحقق منه وحاول مرة أخرى.';
+
+  @override
+  String get inviteReady => 'الدعوة جاهزة';
+
+  @override
+  String get inviteReadyHint =>
+      'أرسل هذا الرمز لقريبك. يسجّل الدخول في التطبيق ويدخله من «الانضمام برمز». يُستخدم مرة واحدة وينتهي بعد 7 أيام.';
+
+  @override
+  String get inviteRelative => 'دعوة قريب';
+
+  @override
+  String get inviteRoleQuestion => 'ما الذي يمكنه فعله؟';
+
+  @override
+  String get inviteUsed => 'تم استخدام هذه الدعوة من قبل.';
+
+  @override
+  String get inviteWrongEmail => 'هذه الدعوة مخصصة لبريد إلكتروني آخر.';
+
+  @override
+  String get joinHint => 'أدخل رمز الدعوة الذي أرسله لك قريبك.';
+
+  @override
+  String get joinTree => 'الانضمام للشجرة';
+
+  @override
+  String get joinWithCode => 'الانضمام برمز';
+
+  @override
+  String get leaveTree => 'مغادرة الشجرة';
+
+  @override
+  String get liveEditingNote =>
+      'تظهر تعديلات أي محرر للجميع خلال ثوانٍ. إذا عدّل شخصان نفس الفرد في الوقت نفسه، يُعتمد آخر حفظ.';
+
+  @override
+  String get myTrees => 'أشجار عائلتي';
+
+  @override
+  String get newTree => 'شجرة جديدة';
+
+  @override
+  String get noPendingInvites => 'لا توجد دعوات معلّقة.';
+
+  @override
+  String get pendingInvites => 'دعوات معلّقة';
+
+  @override
+  String get removeMember => 'إزالة من الشجرة';
+
+  @override
+  String get renameTree => 'إعادة التسمية';
+
+  @override
+  String get revokeConfirm => 'إلغاء هذه الدعوة؟ سيتوقف الرمز عن العمل.';
+
+  @override
+  String get revokeInvite => 'إلغاء الدعوة';
+
+  @override
+  String get roleEditor => 'محرر';
+
+  @override
+  String get roleEditorHint => 'يمكنه إضافة الأشخاص وتعديلهم';
+
+  @override
+  String get roleOwner => 'المالك';
+
+  @override
+  String get roleOwnerHint => 'يدير المشاركة والشجرة';
+
+  @override
+  String get roleViewer => 'مشاهد';
+
+  @override
+  String get roleViewerHint => 'يمكنه العرض فقط';
+
+  @override
+  String get shareIntro => 'ادعُ أقاربك لعرض هذه الشجرة أو بنائها معك.';
+
+  @override
+  String get shareTree => 'مشاركة الشجرة';
+
+  @override
+  String get shareTreeHint => 'الأعضاء والدعوات';
+
+  @override
+  String get signInToJoin =>
+      'سجّل الدخول أو أنشئ حساباً للانضمام إلى شجرة مشتركة.';
+
+  @override
+  String get treeName => 'اسم الشجرة';
+
+  @override
+  String get viewOnly => 'عرض فقط';
+
+  @override
+  String get you => 'أنت';
+
+  @override
   String ageYears(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,
@@ -716,5 +859,58 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String uploadQuestion(int count) {
     return 'شجرتك السحابية فارغة. هل تريد رفع $count شخص محفوظين على هذا الجهاز؟';
+  }
+
+  @override
+  String deleteTreeConfirm(String name) {
+    return 'حذف «$name» وكل محتواها لجميع الأعضاء؟ لا يمكن التراجع عن ذلك.';
+  }
+
+  @override
+  String expiresOn(String date) {
+    return 'تنتهي في $date';
+  }
+
+  @override
+  String inviteMessage(String tree, String code, String link) {
+    return 'أنت مدعو إلى شجرة العائلة «$tree». افتح تطبيق شجرة العائلة، وسجّل الدخول، واختر «الانضمام برمز» وأدخل: $code $link';
+  }
+
+  @override
+  String invitedAs(String role) {
+    return 'أنت مدعو بصلاحية: $role';
+  }
+
+  @override
+  String invitedBy(String email) {
+    return 'الدعوة من $email';
+  }
+
+  @override
+  String joined(String name) {
+    return 'انضممت إلى «$name»';
+  }
+
+  @override
+  String leaveConfirm(String name) {
+    return 'مغادرة «$name»؟ ستحتاج دعوة جديدة للعودة.';
+  }
+
+  @override
+  String membersCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عضواً',
+      few: '$count أعضاء',
+      two: 'عضوان',
+      one: 'عضو واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String removeMemberConfirm(String email) {
+    return 'إزالة $email من هذه الشجرة؟';
   }
 }

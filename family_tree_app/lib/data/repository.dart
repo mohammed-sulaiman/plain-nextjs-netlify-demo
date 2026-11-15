@@ -8,8 +8,16 @@ import '../models/models.dart';
 /// Storage backend for a single family tree. Implemented locally (on-device,
 /// works offline on every platform) and on Supabase (cloud + login).
 abstract class TreeRepository {
-  /// Human readable backend name, used in the UI.
   bool get isCloud;
+
+  /// False for viewers of a shared tree.
+  bool get canEdit;
+
+  /// Fires when someone else changes the tree (cloud only).
+  Stream<void>? get remoteChanges;
+
+  /// Releases subscriptions when the repository is replaced.
+  void dispose();
 
   Future<FamilyData> load();
 
@@ -36,6 +44,15 @@ class LocalTreeRepository implements TreeRepository {
 
   @override
   bool get isCloud => false;
+
+  @override
+  bool get canEdit => true;
+
+  @override
+  Stream<void>? get remoteChanges => null;
+
+  @override
+  void dispose() {}
 
   @override
   Future<FamilyData> load() async {

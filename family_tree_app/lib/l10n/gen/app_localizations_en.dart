@@ -580,6 +580,151 @@ class AppLocalizationsEn extends AppLocalizations {
   String get viewDetails => 'View details';
 
   @override
+  String get actionFailed => 'Something went wrong';
+
+  @override
+  String get anyoneWithCode => 'Anyone with the code';
+
+  @override
+  String get changeRole => 'Change role';
+
+  @override
+  String get checkInvite => 'Check code';
+
+  @override
+  String get copyCode => 'Copy code';
+
+  @override
+  String get copyInviteMessage => 'Copy invite message';
+
+  @override
+  String get createInvite => 'Create invite';
+
+  @override
+  String get deleteTree => 'Delete tree';
+
+  @override
+  String get emptyViewOnly =>
+      'This shared tree is empty. You have view-only access.';
+
+  @override
+  String get inviteCode => 'Invite code';
+
+  @override
+  String get inviteEmailHint =>
+      'If set, only the person signed in with this email can use the invite.';
+
+  @override
+  String get inviteEmailOptional => 'Email (optional)';
+
+  @override
+  String get inviteExpired => 'This invite has expired. Ask for a new one.';
+
+  @override
+  String get inviteNotFound => 'Invite code not found. Check it and try again.';
+
+  @override
+  String get inviteReady => 'Invite ready';
+
+  @override
+  String get inviteReadyHint =>
+      'Send this code to your relative. They sign in to the app and enter it under “Join with a code”. It works once and expires in 7 days.';
+
+  @override
+  String get inviteRelative => 'Invite a relative';
+
+  @override
+  String get inviteRoleQuestion => 'What can they do?';
+
+  @override
+  String get inviteUsed => 'This invite has already been used.';
+
+  @override
+  String get inviteWrongEmail =>
+      'This invite is for a different email address.';
+
+  @override
+  String get joinHint => 'Enter the invite code a relative sent you.';
+
+  @override
+  String get joinTree => 'Join the tree';
+
+  @override
+  String get joinWithCode => 'Join with a code';
+
+  @override
+  String get leaveTree => 'Leave this tree';
+
+  @override
+  String get liveEditingNote =>
+      'Changes made by any editor appear for everyone within seconds. If two people edit the same person at once, the last save wins.';
+
+  @override
+  String get myTrees => 'My family trees';
+
+  @override
+  String get newTree => 'New tree';
+
+  @override
+  String get noPendingInvites => 'No pending invites.';
+
+  @override
+  String get pendingInvites => 'Pending invites';
+
+  @override
+  String get removeMember => 'Remove from tree';
+
+  @override
+  String get renameTree => 'Rename';
+
+  @override
+  String get revokeConfirm => 'Cancel this invite? The code will stop working.';
+
+  @override
+  String get revokeInvite => 'Cancel invite';
+
+  @override
+  String get roleEditor => 'Editor';
+
+  @override
+  String get roleEditorHint => 'Can add and edit people';
+
+  @override
+  String get roleOwner => 'Owner';
+
+  @override
+  String get roleOwnerHint => 'Manages sharing and the tree';
+
+  @override
+  String get roleViewer => 'Viewer';
+
+  @override
+  String get roleViewerHint => 'Can only view';
+
+  @override
+  String get shareIntro =>
+      'Invite relatives to view or build this tree with you.';
+
+  @override
+  String get shareTree => 'Share tree';
+
+  @override
+  String get shareTreeHint => 'Members and invites';
+
+  @override
+  String get signInToJoin =>
+      'Sign in or create an account to join a shared tree.';
+
+  @override
+  String get treeName => 'Tree name';
+
+  @override
+  String get viewOnly => 'View only';
+
+  @override
+  String get you => 'you';
+
+  @override
   String ageYears(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,
@@ -708,5 +853,56 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String uploadQuestion(int count) {
     return 'Your cloud tree is empty. Upload the $count people saved on this device?';
+  }
+
+  @override
+  String deleteTreeConfirm(String name) {
+    return 'Delete “$name” and everything in it for all members? This cannot be undone.';
+  }
+
+  @override
+  String expiresOn(String date) {
+    return 'expires $date';
+  }
+
+  @override
+  String inviteMessage(String tree, String code, String link) {
+    return 'You are invited to the family tree “$tree”. Open the Family Tree app, sign in, choose “Join with a code” and enter: $code $link';
+  }
+
+  @override
+  String invitedAs(String role) {
+    return 'You are invited as: $role';
+  }
+
+  @override
+  String invitedBy(String email) {
+    return 'Invited by $email';
+  }
+
+  @override
+  String joined(String name) {
+    return 'You joined “$name”';
+  }
+
+  @override
+  String leaveConfirm(String name) {
+    return 'Leave “$name”? You will need a new invite to rejoin.';
+  }
+
+  @override
+  String membersCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count members',
+      one: '1 member',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String removeMemberConfirm(String email) {
+    return 'Remove $email from this tree?';
   }
 }

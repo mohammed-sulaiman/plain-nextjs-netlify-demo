@@ -8,6 +8,7 @@ import '../../state/settings_store.dart';
 import '../../state/tree_store.dart';
 import '../common.dart';
 import 'login_screen.dart';
+import 'sharing_screens.dart';
 
 /// Native names of the supported languages. Adding a language = adding an
 /// ARB file in lib/l10n and its native name here.
@@ -43,6 +44,29 @@ class SettingsScreen extends StatelessWidget {
                   leading: const Icon(Icons.account_circle_outlined),
                   title: Text(account.user!.email ?? ''),
                   subtitle: Text(store.isCloud ? l.cloudSynced : l.localOnly),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.account_tree_outlined),
+                  title: Text(l.myTrees),
+                  subtitle: Text(account.cloudTree?.treeName ?? ''),
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const TreesScreen())),
+                ),
+                if (store.isCloud)
+                  ListTile(
+                    leading: const Icon(Icons.group_add_outlined),
+                    title: Text(l.shareTree),
+                    subtitle: Text(l.shareTreeHint),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const ShareTreeScreen())),
+                  ),
+                ListTile(
+                  leading: const Icon(Icons.vpn_key_outlined),
+                  title: Text(l.joinWithCode),
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const JoinTreeScreen())),
                 ),
                 ListTile(
                   leading: const Icon(Icons.logout),

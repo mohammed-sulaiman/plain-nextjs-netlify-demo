@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import '../../data/sample_data.dart';
 import '../../logic/gedcom.dart';
 import '../../models/models.dart';
+import '../../state/account.dart';
 import '../../state/tree_store.dart';
 import '../common.dart';
 import '../widgets/display_options.dart';
@@ -22,6 +23,7 @@ import 'map_screen.dart';
 import 'person_detail_screen.dart';
 import 'person_edit_screen.dart';
 import 'relationship_screen.dart';
+import 'sharing_screens.dart';
 import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,6 +38,20 @@ enum _Menu { importGed, exportGed, exportPdf, exportPng, sample, settings }
 class _HomeScreenState extends State<HomeScreen> {
   final _treeKey = GlobalKey<FamilyTreeViewState>();
   final _captureKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    // Opened from an invite link: go straight to the join screen.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final account = context.read<AccountController>();
+      final code = account.pendingInvite;
+      if (code == null) return;
+      account.pendingInvite = null;
+      Navigator.push(context,
+          MaterialPageRoute(builder: (_) => JoinTreeScreen(initialCode: code)));
+    });
+  }
 
   void _openDetails(String id) => Navigator.push(context,
       MaterialPageRoute(builder: (_) => PersonDetailScreen(personId: id)));
@@ -76,18 +92,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   _openDetails(id);
                 },
               ),
-              ListTile(
-                leading: const Icon(Icons.edit_outlined),
-                title: Text(l.edit),
-                onTap: () {
-                  Navigator.pop(ctx);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => PersonEditScreen(person: p)));
-                },
-              ),
-              const Divider(),
+              if (store.canEdit) ...[
+                ListTile(
+                  leading: const Icon(Icons.edit_outlined),
+                  title: Text(l.edit),
+                  onTap: () {
+                    Navigator.pop(ctx);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => PersonEditScreen(person: p)));
+                  },
+                ),
+                const Divider(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 child: Align(
@@ -114,6 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              ],
             ],
           ),
         ),
@@ -215,20 +233,54 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final store = context.watch<TreeStore>();
+    final account = context.watch<AccountController>();
     final l = context.l10n;
     final focus = store.focusId == null ? null : store.data[store.focusId!];
+    final cloud = account.cloudTree;
+    final treeName = cloud?.treeName;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l.appTitle),
+        title: cloud == null
+            ? Text(l.appTitle)
+            : InkWell(
+                borderRadius: BorderRadius.circular(8),
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => const TreesScreen())),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          treeName == null || treeName.isEmpty
+                              ? l.appTitle
+                              : treeName,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const Icon(Icons.arrow_drop_down),
+                      if (!store.canEdit) ...[
+                        const SizedBox(width: 4),
+                        Chip(
+                          visualDensity: VisualDensity.compact,
+                          avatar:
+                              const Icon(Icons.visibility_outlined, size: 16),
+                          label: Text(l.viewOnly),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
         actions: [
           if (store.isCloud)
-            Tooltip(
-              message: l.cloudSynced,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4),
-                child: Icon(Icons.cloud_done_outlined),
-              ),
+            IconButton(
+              tooltip: l.shareTree,
+              icon: const Icon(Icons.group_add_outlined),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const ShareTreeScreen())),
             ),
           IconButton(
             tooltip: l.search,
@@ -266,11 +318,14 @@ class _HomeScreenState extends State<HomeScreen> {
           PopupMenuButton<_Menu>(
             onSelected: _menu,
             itemBuilder: (_) => [
-              PopupMenuItem(value: _Menu.importGed, child: Text(l.importGedcom)),
+              if (store.canEdit)
+                PopupMenuItem(
+                    value: _Menu.importGed, child: Text(l.importGedcom)),
               PopupMenuItem(value: _Menu.exportGed, child: Text(l.exportGedcom)),
               PopupMenuItem(value: _Menu.exportPdf, child: Text(l.exportPdf)),
               PopupMenuItem(value: _Menu.exportPng, child: Text(l.exportImage)),
-              PopupMenuItem(value: _Menu.sample, child: Text(l.loadSample)),
+              if (store.canEdit)
+                PopupMenuItem(value: _Menu.sample, child: Text(l.loadSample)),
               const PopupMenuDivider(),
               PopupMenuItem(value: _Menu.settings, child: Text(l.settings)),
             ],
@@ -280,7 +335,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: store.loading
           ? const Center(child: CircularProgressIndicator())
           : store.data.isEmpty
-              ? _EmptyState(onSample: _loadSample)
+              ? _EmptyState(onSample: _loadSample, canEdit: store.canEdit)
               : Stack(
                   children: [
                     FamilyTreeView(
@@ -319,7 +374,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-      floatingActionButton: store.data.isEmpty
+      floatingActionButton: store.data.isEmpty || !store.canEdit
           ? null
           : FloatingActionButton.extended(
               onPressed: () => Navigator.push(context,
@@ -376,7 +431,8 @@ class _FocusChip extends StatelessWidget {
 
 class _EmptyState extends StatelessWidget {
   final VoidCallback onSample;
-  const _EmptyState({required this.onSample});
+  final bool canEdit;
+  const _EmptyState({required this.onSample, required this.canEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -397,8 +453,10 @@ class _EmptyState extends StatelessWidget {
                   style: theme.textTheme.headlineSmall,
                   textAlign: TextAlign.center),
               const SizedBox(height: 8),
-              Text(l.emptyBody, textAlign: TextAlign.center),
+              Text(canEdit ? l.emptyBody : l.emptyViewOnly,
+                  textAlign: TextAlign.center),
               const SizedBox(height: 24),
+              if (canEdit) ...[
               FilledButton.icon(
                 onPressed: () => Navigator.push(
                     context,
@@ -413,6 +471,7 @@ class _EmptyState extends StatelessWidget {
                 icon: const Icon(Icons.auto_awesome),
                 label: Text(l.loadSample),
               ),
+              ],
             ],
           ),
         ),

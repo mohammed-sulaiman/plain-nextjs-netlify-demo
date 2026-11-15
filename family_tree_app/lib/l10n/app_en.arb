@@ -185,6 +185,52 @@
   "upload": "Upload",
   "uploadTitle": "Upload your tree?",
   "viewDetails": "View details",
+  "actionFailed": "Something went wrong",
+  "anyoneWithCode": "Anyone with the code",
+  "changeRole": "Change role",
+  "checkInvite": "Check code",
+  "copyCode": "Copy code",
+  "copyInviteMessage": "Copy invite message",
+  "createInvite": "Create invite",
+  "deleteTree": "Delete tree",
+  "emptyViewOnly": "This shared tree is empty. You have view-only access.",
+  "inviteCode": "Invite code",
+  "inviteEmailHint": "If set, only the person signed in with this email can use the invite.",
+  "inviteEmailOptional": "Email (optional)",
+  "inviteExpired": "This invite has expired. Ask for a new one.",
+  "inviteNotFound": "Invite code not found. Check it and try again.",
+  "inviteReady": "Invite ready",
+  "inviteReadyHint": "Send this code to your relative. They sign in to the app and enter it under “Join with a code”. It works once and expires in 7 days.",
+  "inviteRelative": "Invite a relative",
+  "inviteRoleQuestion": "What can they do?",
+  "inviteUsed": "This invite has already been used.",
+  "inviteWrongEmail": "This invite is for a different email address.",
+  "joinHint": "Enter the invite code a relative sent you.",
+  "joinTree": "Join the tree",
+  "joinWithCode": "Join with a code",
+  "leaveTree": "Leave this tree",
+  "liveEditingNote": "Changes made by any editor appear for everyone within seconds. If two people edit the same person at once, the last save wins.",
+  "myTrees": "My family trees",
+  "newTree": "New tree",
+  "noPendingInvites": "No pending invites.",
+  "pendingInvites": "Pending invites",
+  "removeMember": "Remove from tree",
+  "renameTree": "Rename",
+  "revokeConfirm": "Cancel this invite? The code will stop working.",
+  "revokeInvite": "Cancel invite",
+  "roleEditor": "Editor",
+  "roleEditorHint": "Can add and edit people",
+  "roleOwner": "Owner",
+  "roleOwnerHint": "Manages sharing and the tree",
+  "roleViewer": "Viewer",
+  "roleViewerHint": "Can only view",
+  "shareIntro": "Invite relatives to view or build this tree with you.",
+  "shareTree": "Share tree",
+  "shareTreeHint": "Members and invites",
+  "signInToJoin": "Sign in or create an account to join a shared tree.",
+  "treeName": "Tree name",
+  "viewOnly": "View only",
+  "you": "you",
   "ageYears": "{n, plural, =0{under 1 year} =1{1 year} other{{n} years}}",
   "@ageYears": {
     "placeholders": {
@@ -359,6 +405,84 @@
     "placeholders": {
       "count": {
         "type": "int"
+      }
+    }
+  },
+  "deleteTreeConfirm": "Delete “{name}” and everything in it for all members? This cannot be undone.",
+  "@deleteTreeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "expiresOn": "expires {date}",
+  "@expiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteMessage": "You are invited to the family tree “{tree}”. Open the Family Tree app, sign in, choose “Join with a code” and enter: {code} {link}",
+  "@inviteMessage": {
+    "placeholders": {
+      "tree": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      },
+      "link": {
+        "type": "String"
+      }
+    }
+  },
+  "invitedAs": "You are invited as: {role}",
+  "@invitedAs": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "invitedBy": "Invited by {email}",
+  "@invitedBy": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "joined": "You joined “{name}”",
+  "@joined": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "leaveConfirm": "Leave “{name}”? You will need a new invite to rejoin.",
+  "@leaveConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "membersCount": "{count, plural, =1{1 member} other{{count} members}}",
+  "@membersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removeMemberConfirm": "Remove {email} from this tree?",
+  "@removeMemberConfirm": {
+    "placeholders": {
+      "email": {
+        "type": "String"
       }
     }
   }
