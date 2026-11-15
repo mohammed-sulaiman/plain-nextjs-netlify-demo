@@ -1,0 +1,365 @@
+{
+  "@@locale": "en",
+  "appTitle": "Family Tree",
+  "aboutText": "Build, explore and share your family tree. Works offline; sign in to sync across devices.",
+  "account": "Account",
+  "add": "Add",
+  "addBrother": "Brother",
+  "addSister": "Sister",
+  "addFather": "Father",
+  "addMother": "Mother",
+  "addSon": "Son",
+  "addDaughter": "Daughter",
+  "addHusband": "Husband",
+  "addWife": "Wife",
+  "addFirstPerson": "Add the first person",
+  "addPerson": "Add person",
+  "addRelative": "Add a relative",
+  "addResidence": "Add residence",
+  "editResidence": "Edit residence",
+  "ancestorGenerations": "Ancestor generations",
+  "descendantGenerations": "Descendant generations",
+  "basicInfo": "Basic information",
+  "calendar": "Calendar",
+  "calendarBoth": "Gregorian and Hijri",
+  "calendarGregorian": "Gregorian",
+  "calendarHijri": "Hijri",
+  "cancel": "Cancel",
+  "cardContents": "Show on each card",
+  "checkEmail": "Check your email to continue.",
+  "children": "Children",
+  "chooseOtherParent": "Who is the other parent?",
+  "choosePerson": "Choose a person",
+  "choosePhoto": "Choose photo",
+  "takePhoto": "Camera",
+  "removePhoto": "Remove",
+  "clear": "Clear",
+  "cloudNotConfigured": "Cloud sync is not configured",
+  "cloudNotConfiguredHint": "Build the app with SUPABASE_URL and SUPABASE_ANON_KEY to enable sign-in. Your tree is saved on this device.",
+  "cloudSynced": "Saved online",
+  "localOnly": "Saved on this device",
+  "confirm": "Confirm",
+  "continueWithGoogle": "Continue with Google",
+  "copied": "Copied",
+  "createAccount": "Create account",
+  "deceased": "Deceased",
+  "deletePerson": "Delete person",
+  "displayOptions": "Display options",
+  "done": "Done",
+  "edit": "Edit",
+  "editMarriage": "Marriage details",
+  "editPerson": "Edit person",
+  "email": "Email",
+  "emptyTitle": "Start your family tree",
+  "emptyBody": "Add yourself or an ancestor, then add parents, spouses and children around them.",
+  "endDate": "End date",
+  "evBorn": "Born",
+  "evDied": "Died",
+  "exportGedcom": "Export GEDCOM",
+  "importGedcom": "Import GEDCOM",
+  "exportImage": "Export tree as image",
+  "exportPdf": "Export / print PDF",
+  "faceConsent": "Allow face similarity comparison",
+  "faceConsentHint": "Required before this photo can be compared. Get consent from the person (or a guardian).",
+  "faceFailed": "Comparison failed",
+  "faceNoConsent": "This person has no photo or has not consented to face comparison. Edit the person to enable it.",
+  "faceNoFace": "No face could be detected in the photo.",
+  "faceNotConfigured": "Face similarity needs the cloud service. Configure Supabase first.",
+  "faceNotSignedIn": "Sign in to use face similarity.",
+  "facePrivacy": "Photos are sent securely to the comparison service only when you press the button, are not stored by it, and only people who consented are compared.",
+  "faceSimilarity": "Face similarity",
+  "findLookalikes": "Who looks most alike?",
+  "familyMap": "Family map",
+  "familyName": "Family name",
+  "givenName": "First name",
+  "female": "Female",
+  "male": "Male",
+  "unknownGender": "Unknown",
+  "gender": "Gender",
+  "fieldAge": "Age",
+  "fieldBirthDate": "Date of birth",
+  "fieldBirthPlace": "Place of birth",
+  "fieldDeathDate": "Date of death",
+  "fieldKunya": "Kunya",
+  "fieldLineage": "Lineage",
+  "fieldPhoto": "Photo",
+  "fieldResidence": "Residence",
+  "fieldTribe": "Tribe / clan",
+  "kunyaHint": "e.g. Abu Mohammed",
+  "nickname": "Nickname / title",
+  "firstPerson": "First person",
+  "secondPerson": "Second person",
+  "focusLabel": "Focus",
+  "forgotPassword": "Forgot password?",
+  "fromDate": "From",
+  "toDate": "To",
+  "geneticRelatedness": "Genetic relatedness (from the tree)",
+  "geneticRelatednessHint": "Expected share of DNA inherited from common ancestors, calculated from biological links only. Siblings ≈ 50%, first cousins ≈ 12.5%.",
+  "haveAccount": "I already have an account",
+  "noAccount": "Create a new account",
+  "importEmpty": "No people found in the file.",
+  "importMerge": "Merge",
+  "importReplace": "Replace",
+  "importTitle": "Import GEDCOM",
+  "invalidEmail": "Enter a valid email",
+  "kindAdoptive": "Adoptive / guardian",
+  "kindBiological": "Biological",
+  "kindMilk": "Milk (nursing)",
+  "language": "Language",
+  "lifeEvents": "Life events",
+  "lineageSon": "bin",
+  "lineageDaughter": "bint",
+  "linkExistingChild": "Link an existing child",
+  "linkExistingParent": "Link an existing parent",
+  "linkExistingSpouse": "Link an existing spouse",
+  "linkType": "Relationship type",
+  "loadSample": "Load sample family",
+  "mahramStatus": "Mahram status",
+  "mahramBlood": "Mahram by lineage (نسب)",
+  "mahramMilk": "Mahram by nursing (رضاعة)",
+  "mahramMarriage": "Mahram by marriage (مصاهرة)",
+  "mahramConsummation": "Applies only if the marriage was consummated.",
+  "mahramDisclaimer": "Calculated only from the relationships recorded in the tree. For guidance only: consult a qualified scholar for rulings.",
+  "mahramFormerSpouse": "Former spouse: not mahram",
+  "mahramSameGender": "Same gender: not applicable",
+  "mahramSpouse": "Spouses",
+  "mahramUnknownGender": "Set both genders to calculate",
+  "notMahram": "Not mahram",
+  "marriageDate": "Marriage date",
+  "needParentsForSibling": "Add a parent first, then add siblings as their children.",
+  "noEvents": "No dated events yet.",
+  "noMapData": "No residences with a map location yet. Edit a person, add a residence and pick it on the map.",
+  "noResidences": "No residences recorded.",
+  "noResults": "No results",
+  "none": "None recorded",
+  "notFound": "Person not found",
+  "notNow": "Not now",
+  "notSet": "Not set",
+  "notes": "Notes",
+  "openSettings": "Open settings",
+  "parents": "Parents",
+  "password": "Password",
+  "passwordTooShort": "At least 8 characters",
+  "pickOnMap": "Pick on map",
+  "pickTwoPeople": "Choose two people to see how they are related.",
+  "placeName": "Place",
+  "present": "present",
+  "recenter": "Back to focus",
+  "zoomIn": "Zoom in",
+  "zoomOut": "Zoom out",
+  "relationship": "Relationship",
+  "relationshipCalculator": "Relationship calculator",
+  "required": "Required",
+  "residences": "Residences",
+  "save": "Save",
+  "saveFailed": "Could not save",
+  "search": "Find a person",
+  "searchFailed": "Search failed. Check your connection.",
+  "searchHint": "Name, lineage, kunya or tribe",
+  "searchPlace": "Search for a city or place",
+  "setAsFocus": "Make this person the focus",
+  "settings": "Settings",
+  "showOnMap": "Map",
+  "showSiblings": "Show siblings",
+  "showSpouses": "Show spouses",
+  "showUnclesAunts": "Show uncles and aunts",
+  "siblings": "Siblings",
+  "signIn": "Sign in",
+  "signInHint": "Sign in to save your tree online and open it on all your devices.",
+  "signOut": "Sign out",
+  "spouses": "Spouses",
+  "statusDivorced": "Divorced",
+  "statusMarried": "Married",
+  "statusWidowed": "Widowed",
+  "swap": "Swap",
+  "systemDefault": "System",
+  "theme": "Appearance",
+  "themeDark": "Dark",
+  "themeLight": "Light",
+  "timeline": "Timeline",
+  "treeHint": "Tip: tap a person for options, double-tap to make them the focus, pinch or scroll to zoom.",
+  "treeScope": "Who appears in the tree",
+  "unlink": "Remove link",
+  "unlinkConfirm": "Remove this relationship? The people stay in the tree.",
+  "unnamed": "(no name)",
+  "upload": "Upload",
+  "uploadTitle": "Upload your tree?",
+  "viewDetails": "View details",
+  "ageYears": "{n, plural, =0{under 1 year} =1{1 year} other{{n} years}}",
+  "@ageYears": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "diedAged": "{n, plural, =1{died aged 1} other{died aged {n}}}",
+  "@diedAged": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "bornShort": "b. {date}",
+  "@bornShort": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "diedShort": "d. {date}",
+  "@diedShort": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "commonAncestor": "Common ancestor: {name}",
+  "@commonAncestor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteConfirm": "Delete {name} and all of their links?",
+  "@deleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "evBornIn": "Born in {place}",
+  "@evBornIn": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "evChildBorn": "Birth of {name}",
+  "@evChildBorn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "evDivorced": "Divorced from {name}",
+  "@evDivorced": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "evMarried": "Married {name}",
+  "@evMarried": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "evMoved": "Moved to {place}",
+  "@evMoved": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "evParentDied": "Death of {name}",
+  "@evParentDied": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "evWidowed": "Widowed: {name}",
+  "@evWidowed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "faceEligible": "{count, plural, =0{No other family members have consented to comparison yet.} =1{1 family member can be compared.} other{{count} family members can be compared.}}",
+  "@faceEligible": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "focusSet": "{name} is now the focus of the tree",
+  "@focusSet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "importDone": "Imported {count} people",
+  "@importDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importQuestion": "The file has {count} people. Merge them into the current tree or replace it?",
+  "@importQuestion": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "isRelationOf": "{b} to {a}: {relation}",
+  "@isRelationOf": {
+    "placeholders": {
+      "b": {
+        "type": "String"
+      },
+      "relation": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      }
+    }
+  },
+  "peopleCount": "{count, plural, =1{1 person in this tree} other{{count} people in this tree}}",
+  "@peopleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "relationTo": "{relation} of {name}",
+  "@relationTo": {
+    "placeholders": {
+      "relation": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "uploadQuestion": "Your cloud tree is empty. Upload the {count} people saved on this device?",
+  "@uploadQuestion": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

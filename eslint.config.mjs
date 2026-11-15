@@ -10,6 +10,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  { ignores: ["family_tree_app/**"] },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
