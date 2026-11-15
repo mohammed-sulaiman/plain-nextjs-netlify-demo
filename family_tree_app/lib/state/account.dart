@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../data/repository.dart';
 import '../data/supabase_repository.dart';
 import '../models/models.dart';
 import '../services/cloud.dart';
+import '../services/collaboration.dart';
 import 'tree_store.dart';
 
 /// Login state. Signed out → the tree lives on the device; signed in → the
@@ -18,7 +20,26 @@ class AccountController extends ChangeNotifier {
 
   AccountController(this.store);
 
+  static const _activeTreeKey = 'active_tree_id';
+
+  /// Invite code from an invite link the app was opened with (web).
+  String? pendingInvite;
+
   bool get available => CloudConfig.isConfigured;
+
+  CollaborationService? get collaboration {
+    final c = CloudConfig.client;
+    return c == null || c.auth.currentUser == null
+        ? null
+        : CollaborationService(c);
+  }
+
+  /// The open cloud tree, if any.
+  SupabaseTreeRepository? get cloudTree {
+    final r = store.repository;
+    return r is SupabaseTreeRepository ? r : null;
+  }
+
   User? get user => CloudConfig.client?.auth.currentUser;
   bool get signedIn => user != null;
 
@@ -46,27 +67,42 @@ class AccountController extends ChangeNotifier {
     });
   }
 
-  Future<void> _useCloud() async {
+  Future<void> _useCloud({String? treeId}) async {
     _cloudActive = true;
-    await store.switchRepository(SupabaseTreeRepository(CloudConfig.client!));
+    final prefs = await SharedPreferences.getInstance();
+    final repo = SupabaseTreeRepository(
+      CloudConfig.client!,
+      preferredTreeId: treeId ?? prefs.getString(_activeTreeKey),
+    );
+    await store.switchRepository(repo);
+    final opened = repo.currentTreeId;
+    if (opened != null) await prefs.setString(_activeTreeKey, opened);
     notifyListeners();
   }
+
+  /// Opens another tree the user belongs to (or reopens the current one,
+  /// e.g. after their role changed).
+  Future<void> switchTree(String treeId) => _useCloud(treeId: treeId);
 
   /// Returns the on-device tree, so the UI can offer to upload it when the
   /// cloud tree is still empty.
   Future<FamilyData> localTree() => LocalTreeRepository().load();
 
   Future<void> signIn(String email, String password) async {
-    await CloudConfig.client!.auth
-        .signInWithPassword(email: email, password: password);
+    await CloudConfig.client!.auth.signInWithPassword(
+      email: email,
+      password: password,
+    );
     if (!_cloudActive) await _useCloud();
   }
 
   /// Returns true if the user is signed in immediately (no email
   /// confirmation required by the project settings).
   Future<bool> signUp(String email, String password) async {
-    final res = await CloudConfig.client!.auth
-        .signUp(email: email, password: password);
+    final res = await CloudConfig.client!.auth.signUp(
+      email: email,
+      password: password,
+    );
     if (res.session != null && !_cloudActive) await _useCloud();
     return res.session != null;
   }
@@ -76,9 +112,9 @@ class AccountController extends ChangeNotifier {
   static const oauthRedirect = 'com.familytree.family_tree://login-callback';
 
   Future<void> signInWithGoogle() => CloudConfig.client!.auth.signInWithOAuth(
-        OAuthProvider.google,
-        redirectTo: kIsWeb ? null : oauthRedirect,
-      );
+    OAuthProvider.google,
+    redirectTo: kIsWeb ? null : oauthRedirect,
+  );
 
   Future<void> resetPassword(String email) =>
       CloudConfig.client!.auth.resetPasswordForEmail(email);

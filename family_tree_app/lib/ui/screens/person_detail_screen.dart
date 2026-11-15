@@ -24,6 +24,7 @@ class PersonDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = context.watch<TreeStore>();
+    final canEdit = store.canEdit;
     final d = store.data;
     final p = d[personId];
     final l = context.l10n;
@@ -90,12 +91,15 @@ class PersonDetailScreen extends StatelessWidget {
               context.snack(l.focusSet(p.displayName));
             },
           ),
-          IconButton(
-            tooltip: l.edit,
-            icon: const Icon(Icons.edit_outlined),
-            onPressed: () => Navigator.push(context,
-                MaterialPageRoute(builder: (_) => PersonEditScreen(person: p))),
-          ),
+          if (canEdit)
+            IconButton(
+              tooltip: l.edit,
+              icon: const Icon(Icons.edit_outlined),
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => PersonEditScreen(person: p))),
+            ),
           PopupMenuButton<String>(
             onSelected: (v) async {
               switch (v) {
@@ -125,11 +129,13 @@ class PersonDetailScreen extends StatelessWidget {
               PopupMenuItem(value: 'faces', child: Text(l.faceSimilarity)),
               PopupMenuItem(value: 'relation', child: Text(l.relationshipCalculator)),
               PopupMenuItem(value: 'map', child: Text(l.familyMap)),
-              const PopupMenuDivider(),
-              PopupMenuItem(
-                  value: 'delete',
-                  child: Text(l.deletePerson,
-                      style: TextStyle(color: theme.colorScheme.error))),
+              if (canEdit) ...[
+                const PopupMenuDivider(),
+                PopupMenuItem(
+                    value: 'delete',
+                    child: Text(l.deletePerson,
+                        style: TextStyle(color: theme.colorScheme.error))),
+              ],
             ],
           ),
         ],
@@ -213,7 +219,7 @@ class PersonDetailScreen extends StatelessWidget {
               // ---------------------------------------------------- parents
               _Section(
                 title: l.parents,
-                action: _AddMenu(
+                action: !canEdit ? null : _AddMenu(
                   label: l.add,
                   items: {
                     l.addFather: () => addRelativeFlow(context, p.id, RelativeType.father),
@@ -227,14 +233,14 @@ class PersonDetailScreen extends StatelessWidget {
                     if (d[link.parentId] != null)
                       personTile(link.parentId,
                           subtitle: parentKindLabel(l, link.kind),
-                          onRemove: () => store.removeLink(link.id)),
+                          onRemove: canEdit ? () => store.removeLink(link.id) : null),
                 ],
               ),
 
               // ---------------------------------------------------- spouses
               _Section(
                 title: l.spouses,
-                action: _AddMenu(
+                action: !canEdit ? null : _AddMenu(
                   label: l.add,
                   items: {
                     (p.gender == Gender.female ? l.addHusband : l.addWife): () =>
@@ -261,8 +267,8 @@ class PersonDetailScreen extends StatelessWidget {
                           unionStatusLabel(l, u.status),
                           if (u.startDate != null) dates.format(u.startDate),
                         ].join(' • '),
-                        onRemove: () => store.removeUnion(u.id),
-                        extra: IconButton(
+                        onRemove: canEdit ? () => store.removeUnion(u.id) : null,
+                        extra: !canEdit ? null : IconButton(
                           tooltip: l.editMarriage,
                           icon: const Icon(Icons.favorite_border),
                           onPressed: () => _editUnion(context, u),
@@ -274,7 +280,7 @@ class PersonDetailScreen extends StatelessWidget {
               // --------------------------------------------------- children
               _Section(
                 title: l.children,
-                action: _AddMenu(
+                action: !canEdit ? null : _AddMenu(
                   label: l.add,
                   items: {
                     l.addSon: () => addRelativeFlow(context, p.id, RelativeType.son),
@@ -303,14 +309,14 @@ class PersonDetailScreen extends StatelessWidget {
                             if (ageText(l, d[link.childId]!) != null)
                               ageText(l, d[link.childId]!)!,
                           ].join(' • '),
-                          onRemove: () => store.removeLink(link.id)),
+                          onRemove: canEdit ? () => store.removeLink(link.id) : null),
                 ],
               ),
 
               // --------------------------------------------------- siblings
               _Section(
                 title: l.siblings,
-                action: _AddMenu(label: l.add, items: {
+                action: !canEdit ? null : _AddMenu(label: l.add, items: {
                   l.addBrother: () =>
                       addRelativeFlow(context, p.id, RelativeType.brother),
                   l.addSister: () =>

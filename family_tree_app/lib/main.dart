@@ -1,4 +1,5 @@
-import 'package:cupertino_ui/cupertino_ui.dart' show GlobalCupertinoLocalizations;
+import 'package:cupertino_ui/cupertino_ui.dart'
+    show GlobalCupertinoLocalizations;
 import 'package:flutter_localizations/flutter_localizations.dart'
     show GlobalWidgetsLocalizations;
 import 'package:material_ui/material_ui.dart';
@@ -19,6 +20,9 @@ Future<void> main() async {
   await settings.load();
   final store = TreeStore(LocalTreeRepository());
   final account = AccountController(store);
+  // Opened from an invite link (web): https://…/?invite=CODE
+  final invite = Uri.base.queryParameters['invite'];
+  if (invite != null && invite.isNotEmpty) account.pendingInvite = invite;
   // Don't block the first frame on network: the store shows a spinner.
   account.init();
   runApp(FamilyTreeApp(settings: settings, store: store, account: account));
@@ -65,7 +69,9 @@ class FamilyTreeApp extends StatelessWidget {
           ),
           darkTheme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-                seedColor: seed, brightness: Brightness.dark),
+              seedColor: seed,
+              brightness: Brightness.dark,
+            ),
             useMaterial3: true,
           ),
           home: const HomeScreen(),

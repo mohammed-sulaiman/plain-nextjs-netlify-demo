@@ -1208,6 +1208,282 @@ abstract class AppLocalizations {
   /// **'View details'**
   String get viewDetails;
 
+  /// No description provided for @actionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get actionFailed;
+
+  /// No description provided for @anyoneWithCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Anyone with the code'**
+  String get anyoneWithCode;
+
+  /// No description provided for @changeRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Change role'**
+  String get changeRole;
+
+  /// No description provided for @checkInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'Check code'**
+  String get checkInvite;
+
+  /// No description provided for @copyCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy code'**
+  String get copyCode;
+
+  /// No description provided for @copyInviteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy invite message'**
+  String get copyInviteMessage;
+
+  /// No description provided for @createInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'Create invite'**
+  String get createInvite;
+
+  /// No description provided for @deleteTree.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete tree'**
+  String get deleteTree;
+
+  /// No description provided for @emptyViewOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'This shared tree is empty. You have view-only access.'**
+  String get emptyViewOnly;
+
+  /// No description provided for @inviteCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite code'**
+  String get inviteCode;
+
+  /// No description provided for @inviteEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'If set, only the person signed in with this email can use the invite.'**
+  String get inviteEmailHint;
+
+  /// No description provided for @inviteEmailOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Email (optional)'**
+  String get inviteEmailOptional;
+
+  /// No description provided for @inviteExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'This invite has expired. Ask for a new one.'**
+  String get inviteExpired;
+
+  /// No description provided for @inviteNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite code not found. Check it and try again.'**
+  String get inviteNotFound;
+
+  /// No description provided for @inviteReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite ready'**
+  String get inviteReady;
+
+  /// No description provided for @inviteReadyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Send this code to your relative. They sign in to the app and enter it under “Join with a code”. It works once and expires in 7 days.'**
+  String get inviteReadyHint;
+
+  /// No description provided for @inviteRelative.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite a relative'**
+  String get inviteRelative;
+
+  /// No description provided for @inviteRoleQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'What can they do?'**
+  String get inviteRoleQuestion;
+
+  /// No description provided for @inviteUsed.
+  ///
+  /// In en, this message translates to:
+  /// **'This invite has already been used.'**
+  String get inviteUsed;
+
+  /// No description provided for @inviteWrongEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'This invite is for a different email address.'**
+  String get inviteWrongEmail;
+
+  /// No description provided for @joinHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the invite code a relative sent you.'**
+  String get joinHint;
+
+  /// No description provided for @joinTree.
+  ///
+  /// In en, this message translates to:
+  /// **'Join the tree'**
+  String get joinTree;
+
+  /// No description provided for @joinWithCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Join with a code'**
+  String get joinWithCode;
+
+  /// No description provided for @leaveTree.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave this tree'**
+  String get leaveTree;
+
+  /// No description provided for @liveEditingNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes made by any editor appear for everyone within seconds. If two people edit the same person at once, the last save wins.'**
+  String get liveEditingNote;
+
+  /// No description provided for @myTrees.
+  ///
+  /// In en, this message translates to:
+  /// **'My family trees'**
+  String get myTrees;
+
+  /// No description provided for @newTree.
+  ///
+  /// In en, this message translates to:
+  /// **'New tree'**
+  String get newTree;
+
+  /// No description provided for @noPendingInvites.
+  ///
+  /// In en, this message translates to:
+  /// **'No pending invites.'**
+  String get noPendingInvites;
+
+  /// No description provided for @pendingInvites.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending invites'**
+  String get pendingInvites;
+
+  /// No description provided for @removeMember.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from tree'**
+  String get removeMember;
+
+  /// No description provided for @renameTree.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get renameTree;
+
+  /// No description provided for @revokeConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this invite? The code will stop working.'**
+  String get revokeConfirm;
+
+  /// No description provided for @revokeInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel invite'**
+  String get revokeInvite;
+
+  /// No description provided for @roleEditor.
+  ///
+  /// In en, this message translates to:
+  /// **'Editor'**
+  String get roleEditor;
+
+  /// No description provided for @roleEditorHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Can add and edit people'**
+  String get roleEditorHint;
+
+  /// No description provided for @roleOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get roleOwner;
+
+  /// No description provided for @roleOwnerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Manages sharing and the tree'**
+  String get roleOwnerHint;
+
+  /// No description provided for @roleViewer.
+  ///
+  /// In en, this message translates to:
+  /// **'Viewer'**
+  String get roleViewer;
+
+  /// No description provided for @roleViewerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Can only view'**
+  String get roleViewerHint;
+
+  /// No description provided for @shareIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite relatives to view or build this tree with you.'**
+  String get shareIntro;
+
+  /// No description provided for @shareTree.
+  ///
+  /// In en, this message translates to:
+  /// **'Share tree'**
+  String get shareTree;
+
+  /// No description provided for @shareTreeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Members and invites'**
+  String get shareTreeHint;
+
+  /// No description provided for @signInToJoin.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in or create an account to join a shared tree.'**
+  String get signInToJoin;
+
+  /// No description provided for @treeName.
+  ///
+  /// In en, this message translates to:
+  /// **'Tree name'**
+  String get treeName;
+
+  /// No description provided for @viewOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'View only'**
+  String get viewOnly;
+
+  /// No description provided for @you.
+  ///
+  /// In en, this message translates to:
+  /// **'you'**
+  String get you;
+
   /// No description provided for @ageYears.
   ///
   /// In en, this message translates to:
@@ -1333,6 +1609,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your cloud tree is empty. Upload the {count} people saved on this device?'**
   String uploadQuestion(int count);
+
+  /// No description provided for @deleteTreeConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete “{name}” and everything in it for all members? This cannot be undone.'**
+  String deleteTreeConfirm(String name);
+
+  /// No description provided for @expiresOn.
+  ///
+  /// In en, this message translates to:
+  /// **'expires {date}'**
+  String expiresOn(String date);
+
+  /// No description provided for @inviteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You are invited to the family tree “{tree}”. Open the Family Tree app, sign in, choose “Join with a code” and enter: {code} {link}'**
+  String inviteMessage(String tree, String code, String link);
+
+  /// No description provided for @invitedAs.
+  ///
+  /// In en, this message translates to:
+  /// **'You are invited as: {role}'**
+  String invitedAs(String role);
+
+  /// No description provided for @invitedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Invited by {email}'**
+  String invitedBy(String email);
+
+  /// No description provided for @joined.
+  ///
+  /// In en, this message translates to:
+  /// **'You joined “{name}”'**
+  String joined(String name);
+
+  /// No description provided for @leaveConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave “{name}”? You will need a new invite to rejoin.'**
+  String leaveConfirm(String name);
+
+  /// No description provided for @membersCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 member} other{{count} members}}'**
+  String membersCount(int count);
+
+  /// No description provided for @removeMemberConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {email} from this tree?'**
+  String removeMemberConfirm(String email);
 }
 
 class _AppLocalizationsDelegate
